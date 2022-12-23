@@ -139,9 +139,6 @@
                                             <th>Total</th>
                                             <th>Tanggal</th>
                                             <th>Status</th>
-                                            <th>
-                                                Aksi
-                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody style="font-size: 12px">
@@ -154,11 +151,6 @@
                                             <td>@{{row.tgl}}</td>
                                             <td ng-if="row.status==0">Selesai</td>
                                             <td ng-if="row.status==1">Proses</td>
-    
-                                            <td>
-                                                <button class="btn btn-primary"
-                                                ng-click="detailTransaksi(row)" style="width: 100%;"><i class="ti-edit"></i> Detail</button>
-                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
