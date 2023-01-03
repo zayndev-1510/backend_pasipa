@@ -51,5 +51,45 @@ class LoginServices extends Controller
         }
     }
 
+    public function SetCookie($id,$cookie_name){
+        $cookie_value = $id;
+        setcookie($cookie_name, $cookie_value, time() + (20 * 365 * 24 * 60 * 60), "/"); // 86400 = 1 day
+    }
+
+    function loginAdmin(Request $r){
+       
+       
+        $username = $r->username;
+        $sandi = $r->password;
+        $datalogin = TblLogin::where("username", $username)->select()->first();
+        if ($datalogin) {
+            if ($datalogin->sandi == $sandi) {
+                $id_pengguna=$datalogin->id_pengguna;
+                $this->SetCookie($id_pengguna, "userid");
+                echo json_encode([
+                    "count" => 1,
+                    "message" => "Login Success",
+                    "type" => "Login",
+                    "id_pengguna" => $id_pengguna . "&" . $this->generateRandomString(50),
+                    "lvl"=>$datalogin->hak_akses, 
+                       
+                ]);
+            } else {
+                echo json_encode([
+                    "count" => 0,
+                    "message" => "Login Failed Password Incorrect",
+                    "type" => "Login"
+                ]);
+            }
+        } else {
+            echo json_encode([
+                "count" => 0,
+                "message" => "Login incorrect",
+                "type" => "object"
+            ]);
+        }
+        
+    }
+
 
 }

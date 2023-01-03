@@ -252,7 +252,7 @@
             <div class="page-title-area">
                 <div class="row align-items-center">
                     @yield('header-lvl-1')
-
+                    
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
                             <img class="avatar user-thumb" src="{{ asset('akun/' . $datalogin->foto) }}"

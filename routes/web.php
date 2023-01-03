@@ -12,9 +12,10 @@ route::get("/profil-sekolah",[PageHome::class,"profil"]);
 route::get("/tata-tertib",[PageHome::class,"tata_tertib"]);
 route::get("/kegiatan-sekolah",[PageHome::class,"kegiatan_sekolah"]);
 
-
 Route::prefix('admin')->group(function () {
 
+    route::get("login", [Page::class, "Login"]);
+   
     route::get("dashboard/produk",[Page::class,"Barang"]);
     route::get("dashboard/transaksi/today",[Page::class,"Transaksi"]);
     route::get("dashboard/kasir", [Page::class, "Kasir"]);

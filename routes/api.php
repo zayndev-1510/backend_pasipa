@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 route::prefix("admin")->group(function(){
     route::get("loadDataBarang",[BarangService::class,"loadDataBarang"]);
     Route::post('uploadfotokasir/{nama}',[uploadFiles::class,"uploadFotoKasir"]);
+    route::post("login_akun",[LoginServices::class,"loginAdmin"]);
 });
 
 route::prefix("kasir")->group(function(){

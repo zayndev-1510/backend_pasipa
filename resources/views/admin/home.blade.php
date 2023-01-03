@@ -1,3 +1,5 @@
+
+
 @extends('admin.layout.template')
 @section('header-lvl-1')
     <div class="col-sm-6">
@@ -27,7 +29,7 @@
 
                                     </div>
                                     <div class="d-flex justify-content-between pb-2">
-                                        <h2>{{ 12 }}</h2>
+                                        <h2>@{{ produk }}</h2>
                                     </div>
                                 </div>
 
@@ -39,7 +41,7 @@
                                 <div class="s-report-inner pr--10 pt--30 mb-3">
                                     <div class="icon"><i class="ti-book"></i></div>
                                     <div class="s-report-title d-flex justify-content-between">
-                                        <h4 class="header-title mb-0">Kasir</h4>
+                                        <h4 class="header-title mb-0">Transaksi Pembelian</h4>
 
                                     </div>
                                     <div class="d-flex justify-content-between pb-2">
@@ -55,11 +57,63 @@
                                 <div class="s-report-inner pr--10 pt--30 mb-3">
                                     <div class="icon"><i class="ti-user"></i></div>
                                     <div class="s-report-title d-flex justify-content-between">
-                                        <h4 class="header-title mb-0">Penjualan Hari Ini</h4>
+                                        <h4 class="header-title mb-0">Transaksi Penjualan</h4>
 
                                     </div>
                                     <div class="d-flex justify-content-between pb-2">
-                                        <h2>{{ 17 }}</h2>
+                                        <h2>@{{totaltransaksikeluar | currency:"Rp. ":0 }}</h2>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="row" style="margin-bottom: 10px;">
+                        <div class="col-md-4" style="cursor: pointer"
+                            onclick="window.location.href='{{ url('admin/page/ruangan') }}'">
+                            <div class="single-report">
+                                <div class="s-report-inner pr--10 pt--30 mb-3">
+                                    <div class="icon"><i class="ti-room"></i></div>
+                                    <div class="s-report-title d-flex justify-content-between">
+                                        <h4 class="header-title mb-0">Produk Masuk</h4>
+
+                                    </div>
+                                    <div class="d-flex justify-content-between pb-2">
+                                        <h2>@{{ produkmasuk}}</h2>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="cursor: pointer"
+                            onclick="window.location.href='{{ url('admin/page/mapel') }}'">
+                            <div class="single-report">
+                                <div class="s-report-inner pr--10 pt--30 mb-3">
+                                    <div class="icon"><i class="ti-book"></i></div>
+                                    <div class="s-report-title d-flex justify-content-between">
+                                        <h4 class="header-title mb-0">Produk Keluar</h4>
+
+                                    </div>
+                                    <div class="d-flex justify-content-between pb-2">
+                                        <h2>@{{ produkkeluar }}</h2>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="cursor: pointer"
+                            onclick="window.location.href='{{ url('admin/page/orangtua') }}'">
+                            <div class="single-report">
+                                <div class="s-report-inner pr--10 pt--30 mb-3">
+                                    <div class="icon"><i class="ti-user"></i></div>
+                                    <div class="s-report-title d-flex justify-content-between">
+                                        <h4 class="header-title mb-0">Kasir</h4>
+
+                                    </div>
+                                    <div class="d-flex justify-content-between pb-2">
+                                        <h2>@{{ kasir }}</h2>
                                     </div>
                                 </div>
 
@@ -71,7 +125,7 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="white" style="padding: 10px;">
-                                <h5 style="text-align: center;font-size: 15px;">GRAFIK DATA ALUMNI BERDASARKAN TAHUN KELULUSAN</h5>
+                                <h5 style="text-align: center;font-size: 15px;">GRAFIK DATA PRDOUK KELUAR PERTAHUN</h5>
 
                                 <div style="width: 100%;margin: 0px auto;height:auto;">
                                     <canvas id="myChart"></canvas>
@@ -80,7 +134,7 @@
                         </div>
                         <div class="col-6">
                             <div class="white" style="padding: 10px;">
-                                <h5 style="text-align: center;font-size: 15px;">GRAFIK DATA MAHASISWA AKTIF BERDASARKAN TAHUN AKADEMIK</h5>
+                                <h5 style="text-align: center;font-size: 15px;">GRAFIK DATA PRDOUK MASUK PERTAHUN</h5>
 
                                 <div style="width: 100%;margin: 0px auto;"">
                                     <canvas id="myChart2"></canvas>
@@ -102,7 +156,7 @@
     </div>
 @endsection
 @section('javascript')
-    <script src="{{ asset('grafik/chart.min.js') }}"></script>
+    <script src="{{ asset('grafik/Chart.min.js') }}"></script>
     <script src="{{ asset('assets/angularjs/angular.min.js') }}"></script>
     <script src="{{ asset('assets/angularjs/angular-route.min.js') }}"></script>
     <script src="{{ asset('assets/js/admin/dashboard/app.js') }}"></script>

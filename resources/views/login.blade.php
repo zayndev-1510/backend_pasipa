@@ -48,7 +48,7 @@
             <div class="login-box ptb--100">
                 <form>
                     <div class="login-form-head">
-                        <img src="{{ asset('other/logo.jpg') }}" class="img-responsive" style="width: 150px;height:150px;">
+                      <h4>Selamat Datang </h4>
                     </div>
                     <div class="login-form-body" style="margin-top: -50px;">
                         <div class="form-gp">
@@ -76,7 +76,7 @@
                             </div>
                         </div>
                         <div class="submit-btn-area">
-                            <button id="form_submit" type="submit" ng-click="masuk()">Submit <i class="ti-arrow-right"></i></button>
+                            <button id="form_submit" type="submit" ng-click="LoginAkun()">Submit <i class="ti-arrow-right"></i></button>
                         </div>
 
                     </div>
@@ -87,6 +87,7 @@
 
     <script src="{{ asset('assets/js/plugins.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
+    <script src="{{ asset('assets/js/md5.min.js') }}"></script>
     <script src="{{ asset('assets/js/admin/login/app.js') }}"></script>
     <script src="{{ asset('assets/js/admin/login/service.js') }}"></script>
     <script src="{{ asset('assets/angularjs/sweetalert.min.js') }}"></script>
