@@ -158,7 +158,7 @@ class Page extends Controller
                 "keterangan"=>"Data Produk Masuk"
             ];
             $datalogin=DB::table('tbl_admin')->where("id",$id_pengguna)->select("*")->first();
-            return view("admin.barang",compact("data","datalogin"));
+            return view("admin.produk_masuk",compact("data","datalogin"));
         }else{
             return view("login");
         }
@@ -166,53 +166,61 @@ class Page extends Controller
 
 
     function TransaksiMasuk(){
-        if(isset($_COOKIE["username"])){
+       
+        if(isset($_COOKIE["userid"])){
+            $id_pengguna = $_COOKIE["userid"];
+            $data=[];
+            $data=(object)[
+                "keterangan"=>"Data Transaksi Masuk"
+            ];
+            $datalogin=DB::table('tbl_admin')->where("id",$id_pengguna)->select("*")->first();
+            return view("admin.transaksi_masuk",compact("data","datalogin"));
+        }else{
+            return view("login");
         }
-        $username="andi15";
-        $data=[];
-        $data=(object)[
-            "keterangan"=>"Data Produk Masuk"
-        ];
-        $datalogin=DB::table('tbl_admin')->where("username",$username)->select("*")->first();
-        $datalogin->foto="default.png";
-        return view("admin.transaksi_masuk",compact("data","datalogin"));
     }
 
     function suplier(){
-        if(isset($_COOKIE["username"])){
+       
+        if(isset($_COOKIE["userid"])){
+            $id_pengguna = $_COOKIE["userid"];
+            $data=[];
+            $data=(object)[
+                "keterangan"=>"Data Suplier"
+            ];
+            $datalogin=DB::table('tbl_admin')->where("id",$id_pengguna)->select("*")->first();
+            return view("admin.suplier",compact("data","datalogin"));
+        }else{
+            return view("login");
         }
-        $username="andi15";
-        $data=[];
-        $data=(object)[
-            "keterangan"=>"Data Suplier"
-        ];
-        $datalogin=DB::table('tbl_admin')->where("username",$username)->select("*")->first();
-        $datalogin->foto="default.png";
-        return view("admin.suplier",compact("data","datalogin"));
     }
 
     function Transaksi(){
-        if(isset($_COOKIE["username"])){
+      
+        if(isset($_COOKIE["userid"])){
+            $id_pengguna = $_COOKIE["userid"];
+            $data=[];
+            $data=(object)[
+                "keterangan"=>"Data Transaksi Keluar"
+            ];
+            $datalogin=DB::table('tbl_admin')->where("id",$id_pengguna)->select("*")->first();
+            return view("admin.transaksi",compact("data","datalogin"));
+        }else{
+            return view("login");
         }
-        $username="andi15";
-        $data=[];
-        $data=(object)[
-            "keterangan"=>"Data Transaksi"
-        ];
-        $datalogin=DB::table('tbl_admin')->where("username",$username)->select("*")->first();
-        $datalogin->foto="default.png";
-        return view("admin.transaksi",compact("data","datalogin"));
     }
     function Kasir(){
-        if(isset($_COOKIE["username"])){
+      
+        if(isset($_COOKIE["userid"])){
+            $id_pengguna = $_COOKIE["userid"];
+            $data=[];
+            $data=(object)[
+                "keterangan"=>"Data Kasir"
+            ];
+            $datalogin=DB::table('tbl_admin')->where("id",$id_pengguna)->select("*")->first();
+            return view("admin.kasir",compact("data","datalogin"));
+        }else{
+            return view("login");
         }
-        $username="andi15";
-        $data=[];
-        $data=(object)[
-            "keterangan"=>"Data Kasir"
-        ];
-        $datalogin=DB::table('tbl_admin')->where("username",$username)->select("*")->first();
-        $datalogin->foto="default.png";
-        return view("admin.kasir",compact("data","datalogin"));
     }
 }

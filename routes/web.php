@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\admin\page\Admin;
 use App\Http\Controllers\admin\services\LaporanPembelian;
 use App\Http\Controllers\page\Page;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 route::get("/",[PageHome::class,"index"]);
 route::get("/daftar",[PageHome::class,"daftar"]);
@@ -13,7 +15,7 @@ route::get("/tata-tertib",[PageHome::class,"tata_tertib"]);
 route::get("/kegiatan-sekolah",[PageHome::class,"kegiatan_sekolah"]);
 
 Route::prefix('admin')->group(function () {
-
+    route::get("tes",[Admin::class,"Kasir"]);
     route::get("login", [Page::class, "Login"]);
    
     route::get("dashboard/produk",[Page::class,"Barang"]);
